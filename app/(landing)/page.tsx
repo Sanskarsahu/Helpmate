@@ -7,7 +7,7 @@ import Landingfooter from "@/components/landing-footer";
 
 const LandingPage = () => {
   return ( 
-    <div className="">
+    <div className="overflow-hidden">
       <LandingNavbar/>
       <LandingHero />
       <Landingabout/>
