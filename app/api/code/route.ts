@@ -18,20 +18,16 @@ const instructionMessage: ChatCompletionRequestMessage = {
   const { messages  } = body;
   const options = {
     method: 'POST',
-    url: 'https://openai-api-gpt-3-5-turbo.p.rapidapi.com/api/v1/chat/completions',
+    url: 'https://chat-gpt26.p.rapidapi.com/',
     headers: {
       'content-type': 'application/json',
+      'Content-Type': 'application/json',
       'X-RapidAPI-Key': 'b4cfb4dcf4mshce983ed176d5fd8p152420jsn49d73cda70b9',
-      'X-RapidAPI-Host': 'openai-api-gpt-3-5-turbo.p.rapidapi.com'
+      'X-RapidAPI-Host': 'chat-gpt26.p.rapidapi.com'
     },
     data: {
-      model: 'mixtral-8x7b',
+      model: 'gpt-3.5-turbo',
       messages: [instructionMessage, ...messages],
-      temperature: 0.1,
-      top_p: 0.95,
-      max_tokens: 500,
-      use_cache: false,
-      stream: false
     }
   };
   
