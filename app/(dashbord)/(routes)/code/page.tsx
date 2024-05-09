@@ -73,7 +73,7 @@ export default function CodeGenration() {
         icon={CodeXml}
         iconcolor='text-[#9c6cb2]'
       />
-      <div className=" sm:w-[85vw] sm:h-[80vh] h-[62vh] flex  justify-center sm:px-16 sm:mt-10  mt-20  overflow-y-scroll">
+      <div className=" sm:w-[85vw] sm:h-[80vh] h-[62vh] flex sm:items-center justify-center sm:px-16 sm:mt-10  mt-20  overflow-y-scroll">
         <div className="space-y-4 mt-4">
           {loder && (
             
