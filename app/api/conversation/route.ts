@@ -15,18 +15,17 @@ export async function POST(
   const { messages  } = body;
   const options = {
     method: 'POST',
-    url: 'https://chat-gpt26.p.rapidapi.com/',
+    url: 'https://cheapest-gpt-4-turbo-gpt-4-vision-chatgpt-openai-ai-api.p.rapidapi.com/v1/chat/completions',
     headers: {
       'content-type': 'application/json',
-      'Content-Type': 'application/json',
       'X-RapidAPI-Key': 'b4cfb4dcf4mshce983ed176d5fd8p152420jsn49d73cda70b9',
-      'X-RapidAPI-Host': 'chat-gpt26.p.rapidapi.com'
+      'X-RapidAPI-Host': 'cheapest-gpt-4-turbo-gpt-4-vision-chatgpt-openai-ai-api.p.rapidapi.com'
     },
     data: {
-      model: 'gpt-3.5-turbo',
-      messages: 
-        messages
-      
+      messages: messages,
+      model: 'gpt-4-turbo-preview',
+      max_tokens: 200,
+      temperature: 0.9
     }
   };
 
