@@ -1,5 +1,5 @@
 "use client"
-import { AudioLines, Send} from 'lucide-react'
+import { AudioLines, Send } from 'lucide-react'
 import axios from "axios"
 import Header from '@/components/header'
 import React, { useState } from 'react'
@@ -33,48 +33,48 @@ export default function Music() {
 
   const isLoading = form.formState.isSubmitting;
 
-  const onSubmit = async (values: z.infer<typeof formSchema>)=>{
-    try{
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
       setMusic(undefined);
 
       const response = await axios.post('/api/music', values);
-      
+
       setMusic(response.data.audio);
       form.reset();
     }
-    catch(error:any) {
-      if (error?.response?.status === 403){
+    catch (error: any) {
+      if (error?.response?.status === 403) {
         proModal.onOpen();
       }
-      else{
+      else {
         toast.error("something went wrong")
       }
     }
-    finally{
+    finally {
       router.refresh();
     }
   }
   return (
     <div>
-        <Header
+      <Header
         title='Music Generation'
         description='Chat with our most advance AI to genrate music from promt'
         icon={AudioLines}
         iconcolor='text-[#ffd91a]'
-        />
-        
-        <div className=" sm:w-[85vw] sm:h-[80vh] h-[72vh] flex items-center justify-center lg:px-16 sm:mt-10 mt-28  overflow-y-scroll ">
+      />
+
+<div className=" sm:w-[85vw] sm:h-[80vh] h-[62vh] flex  justify-center sm:px-16 sm:mt-10  mt-20  overflow-y-scroll ">
         {isLoading && (
-          <Loader/>
+          <Loader />
         )}
         {!music && !isLoading && (
           <div className='flex items-center justify-center flex-col'>
-          <Image
-          width={200}
-          height={200}
-          alt="Logo"
-          src="/logo.png"/>
-          <p className='text-xl font-bold'>Start your musical journey</p>
+            <Image
+              width={200}
+              height={200}
+              alt="Logo"
+              src="/logo.png" />
+            <p className='text-xl font-bold'>Start your musical journey</p>
           </div>
         )}
         {music && (
@@ -82,8 +82,8 @@ export default function Music() {
             <source src={music} />
           </audio>
         )}
-        </div>
-        <div className="px-4 lg:px-20 lg:w-fit w-full fixed bottom-5">
+      </div>
+      <div className="px-4 lg:px-20 lg:w-fit w-full fixed bottom-5">
         <div>
           <Form  {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm flex flex-row items-center gap-2'>
@@ -92,8 +92,8 @@ export default function Music() {
                 render={({ field }) => (
                   <FormItem className=''>
                     <FormControl className='m-0 p-0 w-[80vw] lg:w-[70vw]'>
-                      <Input
-                        className=' leading-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent bg-transparent w-[76vw] lg:[66vw]'
+                    <Input
+                        className=' leading-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent bg-transparent w-[70vw] sm:[66vw]'
                         disabled={isLoading}
                         placeholder='write your question here...'
                         {...field}
@@ -105,8 +105,8 @@ export default function Music() {
                 )}
               />
 
-              <Button className=' bg-transparent hover:bg-transparent float-left' type="submit" disabled={isLoading}>
-                <Send className='text-black hover:text-gray-300 transition h-10 w-10 ' />
+              <Button className=' bg-transparent hover:bg-transparent float-left sm:mr-0 pr:6 ' type="submit" disabled={isLoading}>
+                <Send className='text-black hover:text-gray-300 transition sm:h-10 sm:w-10 h-6 w-6 ' />
               </Button>
 
             </form>

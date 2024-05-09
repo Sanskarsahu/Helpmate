@@ -53,13 +53,13 @@ export default function CodeGenration() {
       form.reset();
     }
     catch (error: any) {
-      if (error?.response?.status === 403){
+      if (error?.response?.status === 403) {
         promodal.onOpen();
       }
-      else{
-      toast.error("something went wrong")
+      else {
+        toast.error("something went wrong")
       }
-   }
+    }
     finally {
       setLoder(false)
       router.refresh();
@@ -73,30 +73,30 @@ export default function CodeGenration() {
         icon={CodeXml}
         iconcolor='text-[#9c6cb2]'
       />
-      <div className=" sm:w-[85vw] sm:h-[80vh] h-[72vh] flex items-center justify-center lg:px-16 sm:mt-10 mt-28  overflow-y-scroll ">
+      <div className=" sm:w-[85vw] sm:h-[80vh] h-[62vh] flex  justify-center sm:px-16 sm:mt-10  mt-20  overflow-y-scroll">
         <div className="space-y-4 mt-4">
           {loder && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            
               <Loader />
-            </div>
+            
           )}
           {messages.length === 0 && !loder && (
-            <div className='flex items-center justify-center flex-col'>
+            <div className='flex items-center justify-center flex-col mt-20 sm:mt-0'>
               <Image
                 width={200}
                 height={200}
                 alt="Logo"
                 src="/logo.png" />
-              <p className='text-xl font-bold'>Start your coding journey whith helpmate</p>
+              <p className='sm:text-xl  font-bold'>Start your coding journey whith helpmate</p>
             </div>
           )}
           {messages.length != 0 && !loder && (
-            <div className="flex flex-col gap-y-4 sm:h-[80vh] h-[72vh] m-6">
+            <div className="flex flex-col gap-y-4 sm:h-[80vh] h-[70vh]  ">
               {messages.map((message) => (
                 <div
                   key={message.content}
                   className={cn(
-                    "p-8 w-full flex items-start gap-x-8 rounded-xl",
+                    "p-8 sm:w-full w-80 flex items-start gap-x-8 rounded-xl",
                     message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
                   )}
                 >
@@ -130,7 +130,7 @@ export default function CodeGenration() {
                   <FormItem className=''>
                     <FormControl className='m-0 p-0 w-[80vw] lg:w-[70vw]'>
                       <Input
-                        className=' leading-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent bg-transparent w-[76vw] lg:[66vw]'
+                        className=' leading-10 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent bg-transparent w-[70vw] sm:[66vw]'
                         disabled={isLoading}
                         placeholder='write your question here...'
                         {...field}
@@ -142,8 +142,8 @@ export default function CodeGenration() {
                 )}
               />
 
-              <Button className=' bg-transparent hover:bg-transparent float-left' type="submit" disabled={isLoading}>
-                <Send className='text-black hover:text-gray-300 transition h-10 w-10 ' />
+              <Button className=' bg-transparent hover:bg-transparent float-left sm:mr-0 pr:6 ' type="submit" disabled={isLoading}>
+                <Send className='text-black hover:text-gray-300 transition sm:h-10 sm:w-10 h-6 w-6 ' />
               </Button>
 
             </form>

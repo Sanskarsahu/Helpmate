@@ -21,8 +21,8 @@ export default function Header({
     <div className='mt-12 md:ml-5 mx-4 absolute lg:mt-0 top-3 flex items-center gap-3 md:gap-6'>
        <Icon className={cn('h-20 w-20 drop-shadow-xl', iconcolor)}/>
        <div className="flex flex-col">
-        <h1 className='text-2xl md:text-4xl font-bold pt-2'>{title}</h1>
-        <h5>{description}</h5>
+        <h1 className=' sm:text-4xl text-xl font-bold pt-2'>{title}</h1>
+        <h5 className='text-sm'>{description}</h5>
       </div>
     </div>
     

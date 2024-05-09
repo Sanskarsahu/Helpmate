@@ -56,10 +56,10 @@ const instructionMessage: ChatCompletionRequestMessage = {
 
       if (!isPro){
         await incrementApiLimit();
-        return NextResponse.json(response.data.choices[0].message);
+      
       }
     
-
+      return NextResponse.json(response.data.choices[0].message);
     } catch (error) {
         console.log("conversation_Error",error);
         return new NextResponse("Internal error", {status:500});
